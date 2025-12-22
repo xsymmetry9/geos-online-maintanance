@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GEOS Online – Under Maintenance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background overlay -->
+  <div class="overlay"></div>
+
+  <!-- Language switch -->
+  <div class="lang-switch">
+    <button onclick="setLang('en')">EN</button>
+    <span>|</span>
+    <button onclick="setLang('zh')">中文</button>
+  </div>
+
+  <!-- Main content -->
+  <main class="container">
+    <img src="./images/logo.png" alt="GEOS Online" class="logo" />
+
+    <h1 id="title">We’re Working on It</h1>
+
+    <p id="message">
+      Our system is currently under maintenance while we improve stability and fix ongoing issues.
+    </p>
+
+    <a
+      href="https://notification-app-jade.vercel.app/"
+      class="cta"
+      target="_blank"
+      id="cta"
+    >
+      Cancel a Class
+    </a>
+  </main>
+
+  <script>
+    const content = {
+      en: {
+        title: "We’re Working on It",
+        message:
+          "Our system is currently under maintenance while we improve stability and fix ongoing issues.",
+        cta: "Cancel a Class"
+      },
+      zh: {
+        title: "系統維護中",
+        message:
+          "目前系統正在維護與優化中，以提升穩定性並修復相關問題。",
+        cta: "課程請假 / 取消課程"
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("title").textContent = content[lang].title;
+      document.getElementById("message").textContent = content[lang].message;
+      document.getElementById("cta").textContent = content[lang].cta;
+    }
+  </script>
+
+</body>
+</html>
