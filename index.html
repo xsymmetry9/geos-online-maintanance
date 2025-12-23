@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>GEOS Online – Under Maintenance</title>
+  <title>GEOS Online – 系統維護中</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,19 +13,20 @@
 
   <!-- Language switch -->
   <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
+    <button id="btn-zh" onclick="setLang('zh')">中文</button>
     <span>|</span>
-    <button onclick="setLang('zh')">中文</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
   </div>
 
   <!-- Main content -->
   <main class="container">
     <img src="./images/logo.png" alt="GEOS Online" class="logo" />
 
-    <h1 id="title">We’re Working on It</h1>
+    <!-- Default text is Chinese -->
+    <h1 id="title">系統維護中</h1>
 
     <p id="message">
-      Our system is currently under maintenance while we improve stability and fix ongoing issues.
+      目前系統正在維護與優化中，以提升穩定性並修復相關問題。
     </p>
 
     <a
@@ -34,7 +35,7 @@
       target="_blank"
       id="cta"
     >
-      Cancel a Class
+      課程請假 / 取消課程
     </a>
   </main>
 
@@ -43,7 +44,7 @@
       en: {
         title: "We’re Working on It",
         message:
-          "Our system is currently under maintenance while we improve stability and fix ongoing issues.",
+          "We’re performing maintenance to improve system stability and functionality.",
         cta: "Cancel a Class"
       },
       zh: {
@@ -58,7 +59,14 @@
       document.getElementById("title").textContent = content[lang].title;
       document.getElementById("message").textContent = content[lang].message;
       document.getElementById("cta").textContent = content[lang].cta;
+
+      // optional: active state on buttons
+      document.getElementById("btn-zh").classList.toggle("active", lang === "zh");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
     }
+
+    // Default language = Chinese
+    setLang("zh");
   </script>
 
 </body>
